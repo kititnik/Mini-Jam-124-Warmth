@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Bonfire : MonoBehaviour
 {
     public static float BurningLevel { get; private set; }
+    public bool isBurning;
     [SerializeField] private float fadingSpeed; 
     [SerializeField] private Image burningLevelScale;
     [SerializeField] private GameObject putOnLogsBtn;
@@ -11,18 +12,22 @@ public class Bonfire : MonoBehaviour
     private void Start()
     {
         BurningLevel = 1;
+        isBurning = true;
     }
 
     private void Update()
     {
         if (BurningLevel > 0)
         {
+            isBurning = true;
             BurningLevel -= fadingSpeed * Time.deltaTime;
             burningLevelScale.fillAmount = BurningLevel;
         }
         else
         {
-            print("F");
+            isBurning = false;
+            Destroy(putOnLogsBtn);
+            //When binfire went out
         }
     }
 

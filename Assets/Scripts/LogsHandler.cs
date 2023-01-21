@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LogsHandler : MonoBehaviour
@@ -9,7 +7,7 @@ public class LogsHandler : MonoBehaviour
     
     private void Awake()
     {
-        LogsCount = 0;
+        LogsCount = 10000;
     }
     
     public static void ChangeLogsCount(int value)

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CollectLogs : MonoBehaviour
@@ -6,7 +5,6 @@ public class CollectLogs : MonoBehaviour
     
     [SerializeField] private string logsTag;
     [SerializeField] private LogsSpawner logsSpawner;
-    [SerializeField] private Bonfire bonfire;
 
     
 

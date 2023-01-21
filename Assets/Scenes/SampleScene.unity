@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 291220260}
   m_Layer: 0
   m_Name: Bonfire
-  m_TagString: Untagged
+  m_TagString: Bonfire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee32a44588c74ed42bc37d3389f50450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBurning: 0
   fadingSpeed: 0.1
   burningLevelScale: {fileID: 1741951990}
   putOnLogsBtn: {fileID: 231235743}
@@ -614,6 +615,8 @@ GameObject:
   - component: {fileID: 1572868594}
   - component: {fileID: 1572868598}
   - component: {fileID: 1572868599}
+  - component: {fileID: 1572868600}
+  - component: {fileID: 1572868601}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -649,7 +652,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rotationSpeed: 5
   direction: {x: 0, y: 0}
 --- !u!61 &1572868595
 BoxCollider2D:
@@ -778,7 +780,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logsTag: Logs
   logsSpawner: {fileID: 1494008452}
+--- !u!114 &1572868600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572868592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f5baad525f7b148a52f8484a948972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTemperature: 20
+  maxTemperature: 37
+  fadingSpeed: 0.3
+  bonfireTag: Bonfire
   bonfire: {fileID: 291220259}
+--- !u!114 &1572868601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572868592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d3e6e83d473b74ea0bd87b5f403f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1741951988
 GameObject:
   m_ObjectHideFlags: 0

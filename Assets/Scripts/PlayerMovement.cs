@@ -1,11 +1,9 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float rotationSpeed;
     [SerializeField] private Vector2 direction;
 
     private Rigidbody2D _rigidbody2D;
