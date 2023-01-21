@@ -24,11 +24,11 @@ public class LogsSpawner : MonoBehaviour
         while (_spawnedLogsCount < maxLogsCount)
         {
             _spawnedLogsCount++;
-            var pos = new Vector2(
+            var pos = (Vector2)transform.position + new Vector2(
                 Random.Range(-size.x / 2, size.x / 2),
                 Random.Range(-size.y / 2, size.y / 2));
-            yield return new WaitForSeconds(secondsBetweenSpawns);
             Instantiate(logs, pos, Quaternion.identity);
+            yield return new WaitForSeconds(secondsBetweenSpawns);
         }
     }
 }
