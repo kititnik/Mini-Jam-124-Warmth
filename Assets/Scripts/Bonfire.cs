@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Bonfire : MonoBehaviour
@@ -55,7 +53,7 @@ public class Bonfire : MonoBehaviour
     {
         try
         {
-            CollectLogs.ChangeLogsCount(CollectLogs.LogsCount - 1);
+            LogsHandler.ChangeLogsCount(LogsHandler.LogsCount - 1);
         }
         catch
         {
