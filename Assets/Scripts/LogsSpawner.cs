@@ -27,8 +27,8 @@ public class LogsSpawner : MonoBehaviour
             var pos = (Vector2)transform.position + new Vector2(
                 Random.Range(-size.x / 2, size.x / 2),
                 Random.Range(-size.y / 2, size.y / 2));
-            Instantiate(logs, pos, Quaternion.identity);
             yield return new WaitForSeconds(secondsBetweenSpawns);
+            Instantiate(logs, pos, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         }
     }
 }
