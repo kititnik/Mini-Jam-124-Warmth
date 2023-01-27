@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerTemperature : MonoBehaviour
 {
@@ -10,39 +13,41 @@ public class PlayerTemperature : MonoBehaviour
     [SerializeField] private float fadingSpeed;
     [SerializeField] private string bonfireTag;
     [SerializeField] private Bonfire bonfire;
+    [SerializeField] private Image vignette;
+    [SerializeField] private GameObject losePan;
+    private PlayerMovement _playerMovement;
 
     private void Awake()
     {
         _temperature = maxTemperature;
+        _playerMovement = FindObjectOfType<PlayerMovement>();
+        StartCoroutine(TemperatureChanging());
     }
 
-    private void Update()
+    private IEnumerator TemperatureChanging()
     {
-        if (_state == State.Freeze)
+        while (_temperature > minTemperature)
         {
-            if (_temperature > minTemperature)
+            if (_state == State.Freeze)
             {
                 _temperature -= fadingSpeed * Time.deltaTime;
             }
             else
             {
-                Lose();
-            }
-        }
-        else
-        {
-            if (!bonfire.isBurning)
-            {
-                _state = State.Freeze;
-            }
+                if (!bonfire.isBurning)
+                {
+                    _state = State.Freeze;
+                }
 
-            if (_temperature < maxTemperature)
-            {
-                _temperature += fadingSpeed * Time.deltaTime;
+                if (_temperature < maxTemperature)
+                {
+                    _temperature += fadingSpeed * Time.deltaTime;
+                }
             }
+            vignette.color = new Color(1, 1, 1, _temperature * -1 + 1);
+            yield return null;
         }
-
-        Debug.Log(_temperature);
+        Lose();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -63,7 +68,8 @@ public class PlayerTemperature : MonoBehaviour
 
     private void Lose()
     {
-        print("F");
+        losePan.SetActive(true);
+        Destroy(_playerMovement);
     }
 
     private enum State
