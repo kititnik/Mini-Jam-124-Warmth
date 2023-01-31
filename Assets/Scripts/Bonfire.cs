@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Bonfire : MonoBehaviour
@@ -12,16 +9,17 @@ public class Bonfire : MonoBehaviour
     public float fadingSpeed;
     [SerializeField] private Image burningLevelScale;
     [SerializeField] private GameObject putOnLogsBtn;
+    [SerializeField] private GameObject particles;
     [SerializeField] private Sprite bonfireOutSprite;
     private LogsHandler _logsHandler;
-    private SpriteRenderer _spriteRenderer;
+    private Image _image;
     private Animator _animator;
     [SerializeField] private new Light light;
 
     private void Awake()
     {
         _logsHandler = FindObjectOfType<LogsHandler>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _image = GetComponent<Image>();
         _animator = GetComponent<Animator>();
     }
 
@@ -42,8 +40,9 @@ public class Bonfire : MonoBehaviour
             yield return null;
         }
         Destroy(putOnLogsBtn);
+        Destroy(particles);
         Destroy(_animator);
-        _spriteRenderer.sprite = bonfireOutSprite;
+        _image.sprite = bonfireOutSprite;
         isBurning = false;
 
     }
