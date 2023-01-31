@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -133,8 +133,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 14
-        height: 18
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: bonfire_1
       rect:
         serializedVersion: 2
-        x: 15
+        x: 45
         y: 0
-        width: 14
-        height: 18
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b69428ef60f3f4d4a976028a4283faee
+      spriteID: 973f7c514d931914189dc77cdd501d47
       internalID: -1616383449
       vertices: []
       indices: 
@@ -173,10 +173,10 @@ TextureImporter:
       name: bonfire_2
       rect:
         serializedVersion: 2
-        x: 30
+        x: 90
         y: 0
-        width: 14
-        height: 18
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,7 +184,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac67bc65cc37145438b43909a54ebe44
+      spriteID: ad3cf446f88816e4f9e3b9f94f74ad55
       internalID: 728896491
       vertices: []
       indices: 
@@ -194,10 +194,10 @@ TextureImporter:
       name: bonfire_3
       rect:
         serializedVersion: 2
-        x: 45
+        x: 135
         y: 0
-        width: 14
-        height: 18
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,7 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c02c503c4fa8a974ab0f8ec43fb0b8f2
+      spriteID: 3e5e5775f0f08f84d8b011e56d13bcb3
       internalID: -80010823
       vertices: []
       indices: 

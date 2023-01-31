@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,15 +10,18 @@ public class PlayerTemperature : MonoBehaviour
     [SerializeField] private float maxTemperature;
     [SerializeField] private float fadingSpeed;
     [SerializeField] private string bonfireTag;
-    [SerializeField] private Bonfire bonfire;
     [SerializeField] private Image vignette;
     [SerializeField] private GameObject losePan;
     private PlayerMovement _playerMovement;
+    private Bonfire _bonfire;
+    public static bool IsAlive;
 
     private void Awake()
     {
+        IsAlive = true;
         _temperature = maxTemperature;
         _playerMovement = FindObjectOfType<PlayerMovement>();
+        _bonfire = FindObjectOfType<Bonfire>();
         StartCoroutine(TemperatureChanging());
     }
 
@@ -34,7 +35,7 @@ public class PlayerTemperature : MonoBehaviour
             }
             else
             {
-                if (!bonfire.isBurning)
+                if (!_bonfire.isBurning)
                 {
                     _state = State.Freeze;
                 }
@@ -52,7 +53,7 @@ public class PlayerTemperature : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag(bonfireTag) && bonfire.isBurning)
+        if (col.CompareTag(bonfireTag) && _bonfire.isBurning)
         {
             _state = State.Heat;
         }
@@ -68,8 +69,9 @@ public class PlayerTemperature : MonoBehaviour
 
     private void Lose()
     {
+        IsAlive = false;
         losePan.SetActive(true);
-        Destroy(_playerMovement);
+        Destroy(gameObject);
     }
 
     private enum State
