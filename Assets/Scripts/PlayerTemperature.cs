@@ -8,7 +8,7 @@ public class PlayerTemperature : MonoBehaviour
     private float _temperature;
     [SerializeField] private float minTemperature;
     [SerializeField] private float maxTemperature;
-    [SerializeField] private float fadingSpeed;
+    public float fadingSpeed;
     [SerializeField] private string bonfireTag;
     [SerializeField] private Image vignette;
     [SerializeField] private GameObject losePan;

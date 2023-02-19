@@ -5046,7 +5046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -270}
+  m_AnchoredPosition: {x: 185, y: -135}
   m_SizeDelta: {x: 300, y: 165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176033422
@@ -5957,9 +5957,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - {fileID: 1699262566}
-  eventDuration: 15
-  minInterval: 45
-  maxInterval: 90
+  eventDuration: 5
+  interval: 90
 --- !u!4 &786344542
 Transform:
   m_ObjectHideFlags: 0
@@ -7055,7 +7054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e93c1935aac5844d98061693fc4887a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 8, y: 9}
+  size: {x: 15, y: 8}
   secondsBetweenSpawns: 2
   logs: {fileID: 1538440228285644757, guid: ee721121fc719254ba642e98b04b7ba1, type: 3}
   maxLogsCount: 5
@@ -7067,7 +7066,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494008451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7428,7 +7427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b317030c667cc34b983d5083fc69803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeInMinutes: 6
+  timeInMinutes: 0
   timeInSeconds: 0
   timerText: {fileID: 176033422}
   winPan: {fileID: 1634145030}
@@ -7448,7 +7447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1591060682
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13073,7 +13072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1876279528
 RectTransform:
   m_ObjectHideFlags: 0

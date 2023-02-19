@@ -27,8 +27,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        direction.x = _joystick.Horizontal;
-        direction.y = _joystick.Vertical;
+        if (Application.platform != RuntimePlatform.WindowsEditor)
+        {
+            direction.x = _joystick.Horizontal;
+            direction.y = _joystick.Vertical;
+        }
+        else
+        {
+            direction.x = Input.GetAxis("Horizontal");
+            direction.y = Input.GetAxis("Vertical");
+        }
         
         _animator.SetFloat(Horizontal, direction.x);
         _animator.SetFloat(Vertical, direction.y);

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 public class LogsSpawner : MonoBehaviour
 {
@@ -24,9 +25,10 @@ public class LogsSpawner : MonoBehaviour
         while (_spawnedLogsCount < maxLogsCount)
         {
             _spawnedLogsCount++;
-            var pos = (Vector2)transform.position + new Vector2(
+            var pos = transform.position + new Vector3(
                 Random.Range(-size.x / 2, size.x / 2),
-                Random.Range(-size.y / 2, size.y / 2));
+                Random.Range(-size.y / 2, size.y / 2),
+                90);
             yield return new WaitForSeconds(secondsBetweenSpawns);
             Instantiate(logs, pos, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         }

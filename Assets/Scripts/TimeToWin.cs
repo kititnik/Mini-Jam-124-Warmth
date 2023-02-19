@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,40 +10,44 @@ public class TimeToWin : MonoBehaviour
     [SerializeField] private GameObject winPan;
     private EventManager _eventManager;
     private PlayerMovement _playerMovement;
+    private Bonfire _bonfire;
+    private PlayerTemperature _playerTemperature;
+    private Leaderboard _leaderboard;
+    private long _timeInMilliseconds;
 
     private void Awake()
     {
         _eventManager = FindObjectOfType<EventManager>();
+        _bonfire = FindObjectOfType<Bonfire>();
+        _playerTemperature = FindObjectOfType<PlayerTemperature>();
+        _leaderboard = FindObjectOfType<Leaderboard>();
         StartCoroutine(Time());
     }
 
     private IEnumerator Time()
     {
-        while (((timeInMinutes * 60) + timeInSeconds) > 0)
+        while (PlayerTemperature.IsAlive)
         {
             yield return new WaitForSeconds(1f);
-            timeInSeconds--;
-            if (timeInSeconds <= 0)
+            timeInSeconds++;
+            _timeInMilliseconds += 1000;
+            _leaderboard.UpdateLeaderBoard(_timeInMilliseconds);
+            if (timeInSeconds >= 59)
             {
-                timeInMinutes--;
-                timeInSeconds = 59;
+                timeInMinutes++;
+                timeInSeconds = 0;
             }
-            timerText.text = $"{timeInMinutes}:{timeInSeconds}";
-            switch (timeInMinutes)
-            {
-                case 4:
-                    _eventManager.SetInterval(30, 60);
-                    break;
-                case 2:
-                    _eventManager.SetInterval(20, 30);
-                    break;
-                case 1:
-                    _eventManager.SetInterval(10, 15);
-                    break;
-            }
+            timerText.text = timeInSeconds < 10 ? $"{timeInMinutes}:0{timeInSeconds}" : $"{timeInMinutes}:{timeInSeconds}";
+            WorsenConditions(ref _bonfire.fadingSpeed, ref _playerTemperature.fadingSpeed, ref _eventManager.interval, ref _eventManager.eventDuration);
         }
-        timerText.text = $"00:00";
-        winPan.SetActive(true); 
-        Destroy(_playerMovement.gameObject);
+    }
+
+    private void WorsenConditions(ref float bonfireDecreaserSpeed, ref float playersTemperatureDecreaserSpeed, ref float timeBetweenEvents, ref float eventsDuration)
+    {
+        //We have: bonfire decreaser speed(0 - 1), player's temperature decreaser speed(0 - 1), time between events, events duration
+        bonfireDecreaserSpeed += bonfireDecreaserSpeed / 100 * 0.5f;
+        playersTemperatureDecreaserSpeed += playersTemperatureDecreaserSpeed / 100 * 0.5f;
+        timeBetweenEvents -= timeBetweenEvents / 100 * 0.5f;
+        eventsDuration += eventsDuration / 100 * 0.5f;
     }
 }
