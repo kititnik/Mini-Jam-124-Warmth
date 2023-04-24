@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Net.Mime;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class LogsSpawner : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class LogsSpawner : MonoBehaviour
     [SerializeField] private GameObject logs;
     private int _spawnedLogsCount;
     [SerializeField] private int maxLogsCount;
+    [SerializeField] private Sprite[] stickSprites;
     private void Start()
     {
         StartCoroutine(nameof(Spawn));
@@ -30,7 +33,8 @@ public class LogsSpawner : MonoBehaviour
                 Random.Range(-size.y / 2, size.y / 2),
                 90);
             yield return new WaitForSeconds(secondsBetweenSpawns);
-            Instantiate(logs, pos, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            var log = Instantiate(logs, pos, Quaternion.identity);
+            log.GetComponent<SpriteRenderer>().sprite = stickSprites[Random.Range(0, stickSprites.Length-1)];
         }
     }
 }
