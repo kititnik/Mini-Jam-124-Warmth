@@ -11,7 +11,6 @@ public class TimeToWin : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject winPan;
     private EventManager _eventManager;
-    private PlayerMovement _playerMovement;
 
     private void Awake()
     {
@@ -30,7 +29,9 @@ public class TimeToWin : MonoBehaviour
                 timeInMinutes--;
                 timeInSeconds = 59;
             }
-            timerText.text = $"{timeInMinutes}:{timeInSeconds}";
+            if(timeInSeconds >= 10)
+                timerText.text = $"{timeInMinutes}:{timeInSeconds}";
+            else timerText.text = $"{timeInMinutes}:0{timeInSeconds}";
             switch (timeInMinutes)
             {
                 case 4:
@@ -46,6 +47,6 @@ public class TimeToWin : MonoBehaviour
         }
         timerText.text = $"00:00";
         winPan.SetActive(true); 
-        Destroy(_playerMovement.gameObject);
+        Destroy(gameObject);
     }
 }
