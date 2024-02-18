@@ -12,7 +12,6 @@ public class PlayerTemperature : MonoBehaviour
     [SerializeField] private string bonfireTag;
     [SerializeField] private Image vignette;
     [SerializeField] private GameObject losePan;
-    private PlayerMovement _playerMovement;
     private Bonfire _bonfire;
     public static bool IsAlive;
 
@@ -20,7 +19,6 @@ public class PlayerTemperature : MonoBehaviour
     {
         IsAlive = true;
         _temperature = maxTemperature;
-        _playerMovement = FindObjectOfType<PlayerMovement>();
         _bonfire = FindObjectOfType<Bonfire>();
         StartCoroutine(TemperatureChanging());
     }

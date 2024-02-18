@@ -5860,9 +5860,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: cef6572a5922b7147a55adabc30f3709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+  m_Script: {fileID: 11500000, guid: 4beb7823bf346447791decb144e7c028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToWin: {fileID: 1572868605}
+  events: {fileID: 1699262566}
+  bonfire: {fileID: 1485249042}
+  resourceSpawner: {fileID: 1494008454}
+  resources:
+  - {fileID: 1538440228285644757, guid: ee721121fc719254ba642e98b04b7ba1, type: 3}
+  spawnArea: {x: 8, y: 9}
+  maxResourcesCount: 5
+>>>>>>> Stashed changes
 --- !u!1 &579961423
 GameObject:
   m_ObjectHideFlags: 0
@@ -6074,6 +6088,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593822655}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
 --- !u!1 &786344540
 GameObject:
   m_ObjectHideFlags: 0
@@ -6123,6 +6138,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &814857701
 GameObject:
   m_ObjectHideFlags: 0
@@ -7050,6 +7067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee32a44588c74ed42bc37d3389f50450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startFadingSpeed: 0
   isBurning: 1
   fadingSpeed: 0.05
   burningLevelScale: {fileID: 2035132684}
@@ -7183,6 +7201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1494008453}
   - component: {fileID: 1494008452}
+  - component: {fileID: 1494008454}
   m_Layer: 0
   m_Name: LogsSpawner
   m_TagString: Untagged
@@ -7197,7 +7216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494008451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e93c1935aac5844d98061693fc4887a, type: 3}
   m_Name: 
@@ -7226,6 +7245,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1494008454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494008451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c3d50c6790c49208cb1f9ed755217c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1572868592
 GameObject:
   m_ObjectHideFlags: 0
@@ -7585,8 +7616,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b317030c667cc34b983d5083fc69803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   timeInMinutes: 0
   timeInSeconds: 0
+=======
+>>>>>>> Stashed changes
   timerText: {fileID: 176033422}
   winPan: {fileID: 1634145030}
 --- !u!82 &1572868606
@@ -13034,12 +13068,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699262566}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -194.95, y: -140.15, z: -53.97}
+  m_LocalPosition: {x: -4.4901123, y: -4.1569366, z: 5.209484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+<<<<<<< Updated upstream
   m_Father: {fileID: 786344542}
   m_RootOrder: 0
+=======
+  m_Father: {fileID: 0}
+>>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1812692914
 GameObject:
@@ -13870,3 +13908,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035132682}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
+=======
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 519420032}
+  - {fileID: 1699262569}
+  - {fileID: 2035006289}
+  - {fileID: 2011771364}
+  - {fileID: 1887039583}
+  - {fileID: 1494008453}
+  - {fileID: 1572868593}
+  - {fileID: 1657284135}
+>>>>>>> Stashed changes

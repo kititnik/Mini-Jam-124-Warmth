@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Bonfire : MonoBehaviour
 {
+    private EventManager _eventManager;
+    [SerializeField] private float startFadingSpeed;
     public static float BurningLevel { get; private set; }
     public bool isBurning;
     public float fadingSpeed;
@@ -16,18 +18,27 @@ public class Bonfire : MonoBehaviour
     private Animator _animator;
     [SerializeField] private new Light light;
 
-    private void Awake()
+    public void Initialize(EventManager eventManager, LogsHandler logsHandler)
     {
-        _logsHandler = FindObjectOfType<LogsHandler>();
         _image = GetComponent<Image>();
         _animator = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
+        _logsHandler = logsHandler;
+        _eventManager = eventManager;
+        _eventManager.EventStarted += IncreaseHeatLoss;
+        _eventManager.EventEnded += RevertHeatLoss;
         BurningLevel = 1;
         isBurning = true;
         StartCoroutine(BurningBonfire());
+    }
+
+    private void IncreaseHeatLoss()
+    {
+        fadingSpeed *= 3f;
+    }
+
+    private void RevertHeatLoss()
+    {
+        fadingSpeed = startFadingSpeed;
     }
 
     private IEnumerator BurningBonfire()
@@ -44,7 +55,6 @@ public class Bonfire : MonoBehaviour
         Destroy(_animator);
         _image.sprite = bonfireOutSprite;
         isBurning = false;
-
     }
 
     public static void SetBurningLevel(float value)

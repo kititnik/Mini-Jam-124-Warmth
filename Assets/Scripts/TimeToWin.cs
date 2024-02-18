@@ -1,31 +1,50 @@
+<<<<<<< Updated upstream
 using System.Collections;
+=======
+using System;
+>>>>>>> Stashed changes
 using TMPro;
 using UnityEngine;
 
 public class TimeToWin : MonoBehaviour
 {
-    public int timeInMinutes;
-    public int timeInSeconds;
+    private float _startTime;
+    private Timer _timer;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject winPan;
     private EventManager _eventManager;
+<<<<<<< Updated upstream
     private PlayerMovement _playerMovement;
     private Bonfire _bonfire;
     private PlayerTemperature _playerTemperature;
     private Leaderboard _leaderboard;
     private long _timeInMilliseconds;
+=======
+    public event Action TimeIsOver;
+>>>>>>> Stashed changes
 
-    private void Awake()
+    public void Initialize(Timer timer, float startTime, EventManager eventManager)
     {
+<<<<<<< Updated upstream
         _eventManager = FindObjectOfType<EventManager>();
         _bonfire = FindObjectOfType<Bonfire>();
         _playerTemperature = FindObjectOfType<PlayerTemperature>();
         _leaderboard = FindObjectOfType<Leaderboard>();
         StartCoroutine(Time());
+=======
+        _eventManager = eventManager;
+        _timer = timer;
+        _startTime = startTime;
+        _timer.StartTimer(startTime);
+        _timer.HasBeenUpdated += OnValueChanged;
+        _timer.TimeIsOver += Win;
+        _timer.TimeIsOver += TimeIsOver;
+>>>>>>> Stashed changes
     }
 
-    private IEnumerator Time()
+    private void OnValueChanged(float time)
     {
+<<<<<<< Updated upstream
         while (PlayerTemperature.IsAlive)
         {
             yield return new WaitForSeconds(1f);
@@ -49,5 +68,18 @@ public class TimeToWin : MonoBehaviour
         playersTemperatureDecreaserSpeed += playersTemperatureDecreaserSpeed / 100 * 0.5f;
         timeBetweenEvents -= timeBetweenEvents / 100 * 0.5f;
         eventsDuration += eventsDuration / 100 * 0.5f;
+=======
+        timerText.text = $"{Math.Floor(time)}";
+        float part = time/_startTime;
+        _eventManager.SetChance(part);
+    }
+
+    private void Win()
+    {
+        TimeIsOver?.Invoke();
+        timerText.text = $"0";
+        winPan.SetActive(true); 
+        Destroy(gameObject);
+>>>>>>> Stashed changes
     }
 }
